@@ -37,6 +37,7 @@ public class Lesson_2 {
         //Задание 5
         int[] arr5 = { 9,8,7,6,5,4,3,2,1};
         for (int i = 0; i < arr5.length/2; i++){
+            //сортировка массива по возрастанию
             for (int j = 0; j < arr5.length - 1 - i; j++) {
                 if (arr5[j] > arr5[j+1]){
                     int tempor = arr5[j+1];
@@ -50,8 +51,13 @@ public class Lesson_2 {
                 }
             }
         }
+        int max = arr5[arr5.length-1];
+        int min = arr5[0];
 
-        //Задание 6
+
+
+
+        ////////////////
         int[] arr6 = {2, 2, 2, 1, 2, 2, 10};
         checkBalance(arr6);
         shift(arr6, -5);
@@ -63,9 +69,9 @@ public class Lesson_2 {
     //Задание 6
     static boolean checkBalance (int[] arr){
         boolean result = false;
-        int edge = arr.length - 3;
+        int edge = arr.length - 3; //количество возможных случаев разделения массива
         for (int i = 0; i < edge; i++){
-            int sumLeft = 0, sumRight = 0;
+            int sumLeft = 0, sumRight = 0;//сумма левой части и сумма правой соответственно
             for (int j = 0; j < 2 + i; j++){
                 sumLeft += arr[j];
             }
@@ -85,19 +91,19 @@ public class Lesson_2 {
     static void shift (int[] arr, int n){
         if (n > 0){
             for (int i = 0; i < n; i++) {
-                stepRight(arr);
+                stepRight(arr); //Метод сдвигает все эелементы на одну позицию вправо
             }
         }
         else {
             n = Math.abs(n);
             for (int i = 0; i < n; i++) {
-                stepLeft(arr);
+                stepLeft(arr); //Метод сдвигает все эелементы на одну позицию влево
             }
         }
     }
 
     static void stepRight (int[] arr){
-        int temp = arr[arr.length - 1];
+        int temp = arr[arr.length - 1]; //временная переменная для хранения последнего значения
         int position = arr.length - 1;
         for (int i = position; i > 0; i--) {
             arr[i] = arr[i - 1];
@@ -105,7 +111,7 @@ public class Lesson_2 {
         arr[0] = temp;
     }
     static void stepLeft (int[] arr){
-        int temp = arr[0];
+        int temp = arr[0]; //временная переменная для хранения первого значения
         int position = arr.length - 1;
         for (int i = 0; i < arr.length - 1; i++) {
             arr[i] = arr[i + 1];
