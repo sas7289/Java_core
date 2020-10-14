@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Lesson_3 {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+        guessWord game = new guessWord();
         game();
     }
 
@@ -25,7 +26,7 @@ public class Lesson_3 {
 
     public static void printMenu (){
         System.out.println("Добро пожаловать в игру \"Отгадай число\"" +
-                "\nВыберите нужный пункт:" +
+                "\nВыберите необходимый пункт:" +
                 "\n1. Новая игра" +
                 "\n2. Выход");
     }
