@@ -43,6 +43,7 @@ public class guessWord {
 
     public String wordMask (String user, String comp){
         String result = "";
+        String userWord = user.toLowerCase();
         for (int i = 0; i < 15; i++){
             if (i < user.length() && i < comp.length()){
                 if (user.charAt(i) == comp.charAt(i)){
