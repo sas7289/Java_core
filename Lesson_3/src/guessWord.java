@@ -25,6 +25,8 @@ public class guessWord {
                 case "2":
                     System.out.println("Пока!");
                     System.exit(0);
+                default:
+                    System.out.println("Чавой?");
             }
         }
     }
