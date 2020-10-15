@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Lesson_3 {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        guessWord game = new guessWord();
-        game();
+        guessWord game = new guessWord(); //Конструктор по умолчанию запускает игру "Отгадай слово"
+        game(); //Запуск игры "Отгадай число"
     }
 
     public static void game(){
@@ -13,7 +13,7 @@ public class Lesson_3 {
             printMenu();
             switch (scanner.next()) {
                 case "1":
-                    triplePlay();
+                    triplePlay(); //Метод, отвечающий за генерацию псевдослучайного числа и три попытки отгадать его
                     break;
                 case "2":
                     System.out.println("Пока!");
@@ -23,7 +23,7 @@ public class Lesson_3 {
             }
         }
     }
-
+    //Метод, отвечающий за вывод меню
     public static void printMenu (){
         System.out.println("Добро пожаловать в игру \"Отгадай число\"" +
                 "\nВыберите необходимый пункт:" +
@@ -31,11 +31,12 @@ public class Lesson_3 {
                 "\n2. Выход");
     }
 
+
     public static void triplePlay(){
         Random random = new Random();
         int randNum = random.nextInt(10);
         for (int i = 0; i < 3; i++) {
-            if (guessNumber(randNum)){
+            if (guessNumber(randNum)){//Метод, отвечающий за ввод числа пользователем и сравнение его с параметром метода
                 System.out.println("Верно!");
                 break;
             }

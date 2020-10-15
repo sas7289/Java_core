@@ -13,14 +13,14 @@ public class guessWord {
     }
 
 
-
+    //Метод генерирует псевдослучсайное число, используемое в качестве индекса массива words и принимающий выбор пользователя
     public void game (){
         int posWord = random.nextInt(25);
         while (true){
-            printMenu();
+            printMenu();//Метод печатает меню
             switch (scanner.next()){
                 case "1":
-                    guessWord(words[posWord]);
+                    guessWord(words[posWord]);//Метод предоставляет пользователю ввод слова и сравнивает его с переданным в параметре
                     break;
                 case "2":
                     System.out.println("Пока!");
@@ -41,6 +41,7 @@ public class guessWord {
 
     }
 
+    //Метод накладывает маску на введённое пользователем слово в соотвествии с отгаданными буквами
     public String wordMask (String user, String comp){
         String result = "";
         String userWord = user.toLowerCase();
