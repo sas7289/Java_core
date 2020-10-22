@@ -88,19 +88,19 @@ public class Employee {
 
     private void setAge() {
         while (!scanner.hasNextInt()) {
-            System.out.print(this.age == 0 ? "Возраст: " : "Введите число. Возраст: ");
+            System.out.print(age == 0 ? "Возраст: " : "Введите число. Возраст: ");
             scanner.next();
         }
-        this.age = scanner.nextInt();
+        age = scanner.nextInt();
     }
 
     private void setSalary() {
         System.out.print("Зарплата: ");
         while (!scanner.hasNextInt()) {
-            System.out.print(this.salary == 0 ? "Зарплата: " : "Введите число");
+            System.out.print(salary == 0 ? "Зарплата: " : "Введите число");
             scanner.next();
         }
-        this.salary = scanner.nextInt();
+        salary = scanner.nextInt();
     }
 
 
