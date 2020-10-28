@@ -1,25 +1,17 @@
 public class Dog extends Animal {
-    private double maxRunDistance = 500;
-    private double maxSwimDistance = 10;
-    private double maxJumpHeight = 0.5;
 
     public Dog(){
-        super(null);
+        super(500, 10, 0.5,null);
     }
     public Dog(String name) {
-        super(name);
+        super(500, 10, 0.5, name);
     }
     public Dog(double maxRunDistance, double maxSwimDistance, double maxJumpHeight) {
-        super(null);
-        this.maxRunDistance = maxRunDistance;
-        this.maxSwimDistance = maxSwimDistance;
-        this.maxJumpHeight = maxJumpHeight;
+        super(500, 10, 0.5,null);
     }
-    public Dog(String name, double maxRunDistance, double maxSwimDistance, double maxJumpHeight) {
-        super(name);
-        this.maxRunDistance = maxRunDistance;
-        this.maxSwimDistance = maxSwimDistance;
-        this.maxJumpHeight = maxJumpHeight;
+
+    public Dog(double maxRunDistance, double maxSwimDistance, double maxJumpHeight, String name) {
+        super(maxRunDistance, maxSwimDistance, maxJumpHeight, name);
     }
 
     public void run (double distance) {

@@ -6,6 +6,6 @@ public class Main {
         cat2.swim(0.7);
         cat2.jump(29);
         cat2.jump(31);
-        cat2.run();
+        cat2.swim();
     }
 }
