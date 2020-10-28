@@ -6,7 +6,6 @@ public abstract class Animal {
     protected double maxSwimDistance = 0;
     protected double maxJumpHeight = 0;
 
-
     String name;
 
     public Animal(double maxRunDistance, double maxSwimDistance, double maxJumpHeight, String name) {
@@ -16,15 +15,6 @@ public abstract class Animal {
         this.name = name;
     }
 
-    protected void setMaxRunDistance(double maxRunDistance) {
-        this.maxRunDistance = maxRunDistance;
-    }
-    protected void setMaxSwimDistance(double maxSwimDistance) {
-        this.maxSwimDistance = maxSwimDistance;
-    }
-    protected void setMaxJumpHeight(double maxJumpHeight) {
-        this.maxJumpHeight = maxJumpHeight;
-    }
 
     public void run(){
         state = currentState.running;
@@ -35,8 +25,6 @@ public abstract class Animal {
     public void swim(){
         state = currentState.floats;
     }
-
-
 
     enum currentState {
         running,
