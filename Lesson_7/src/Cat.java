@@ -5,31 +5,38 @@ public class Cat {
     int id;
     Random random = new Random();
     String name;
-    boolean full;
-    int hungerLevel;
+    int currentHungerLevel;
+    int maxHungerLevel;
     public Cat(){
         countCats++;
         id = countCats;
         name = "";
-        full = random.nextInt(2) == 1;
-        hungerLevel = random.nextInt(100);
+        maxHungerLevel = random.nextInt(50) + 50;
+        currentHungerLevel = random.nextInt(maxHungerLevel);
     }
 
     public void eat(Plate plate){
-        if (plate.getAmountOfFood() < hungerLevel){
+        if (plate.getAmountOfFood() == 0){
             System.out.println("Коту " + name + "недостаточно еды в тарелке № " + plate.getId());
         }
-        else if (full) {
+        else if (currentHungerLevel == 0) {
             System.out.println("Котик сыт");
         }
         else {
-            plate.setAmountOfFood(plate.amountOfFood - hungerLevel);
-            full = true;
+            int compare = plate.amountOfFood - currentHungerLevel;
+            if (compare >= 0){
+                plate.setAmountOfFood(compare);
+                currentHungerLevel = 0;
+            }
+            else {
+                plate.setAmountOfFood(0);
+                currentHungerLevel = Math.abs(compare);
+            }
         }
     }
 
     public boolean isFull() {
-        return full;
+        return currentHungerLevel == 0;
     }
 
     public int getId() {
@@ -41,12 +48,12 @@ public class Cat {
     }
 
     public int getHungerLevel() {
-        return hungerLevel;
+        return currentHungerLevel;
     }
 
     @Override
     public String toString() {
         return "id кота " + id + "\nимя кота " + name + "\n" +
-                (full ? "котик сыт" : "котик голоден") + "\nнеобходимо еды " + hungerLevel;
+                (currentHungerLevel == 0 ? "котик сыт" : "котик голоден") + "\nнеобходимо еды " + currentHungerLevel;
     }
 }
