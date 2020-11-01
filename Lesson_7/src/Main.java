@@ -9,15 +9,14 @@ public class Main {
 
     public static void enterRoom() {
         Room room;
-        System.out.println("Вы хотите войти в пустую комнату или с котами?\n1 - в пустую\n2 - с котами");
         room = chooseRoom();
-        System.out.println("Сколько поставить в комнате тарелок для котов?");
-        room.addPlates(checkCountPlates());
+        room.addPlates(enterCountPlates());
         letsFeed(room);
     }
 
     //Метод возвращает объект Room, созданный необходимым конструктором
     public static Room chooseRoom() {
+        System.out.println("Вы хотите войти в пустую комнату или с котами?\n1 - в пустую\n2 - с котами");
         Room room = null;
         mark: while (true) {
             switch (scanner.next()) {
@@ -25,10 +24,10 @@ public class Main {
                     room = new Room();
                     break mark;
                 case "2":
-                    System.out.println("Сколько котов в комнате?");
                     room = new Room(enterCatsCount());
                     break mark;
                 default:
+                    System.out.println("Введите корректное число");
                     break;
             }
         }
@@ -36,14 +35,15 @@ public class Main {
     }
 
     //Метод проверяет введённое количество тарелок при создании Room
-    private static int checkCountPlates() {
+    private static int enterCountPlates() {
         int countPlates = 0;
         do {
+            System.out.println("Введите число тарелок: ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Введите корректное число");
                 scanner.next();
             }
-        } while ((countPlates = scanner.nextInt()) <= 0);
+        } while ((countPlates = scanner.nextInt()) < 0);
         return countPlates;
 
     }
@@ -114,9 +114,9 @@ public class Main {
 
     //Метод запрашивает Id тарелки и проверяет его на корректность
     private static int enterPlate(Room room) {
-        System.out.println("Введите номер тарелки");
         int temp;
         do {
+            System.out.println("Введите номер тарелки");
             while (!scanner.hasNextInt()){
                 System.out.println("Введите коректное число");
             }
@@ -130,6 +130,7 @@ public class Main {
     public static int enterCatsCount() {
         int countCats;
         do{
+            System.out.println("Сколько котов в комнате?");
             while (!scanner.hasNextInt()){
                 System.out.println("Введите корректное число");
                 scanner.next();

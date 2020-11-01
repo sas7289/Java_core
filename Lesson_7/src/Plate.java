@@ -18,7 +18,6 @@ public class Plate {
     }
 
 
-
     public int getAmountOfFood() {
         return amountOfFood;
     }
