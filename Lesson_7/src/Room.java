@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 
 public class Room {
+    //котики в комнате
     ArrayList<Cat> cats = new ArrayList<Cat>();
+
+    //Тарелки в комнате
     ArrayList<Plate> plates = new ArrayList<Plate>();
+
 
     public Room (){
         System.out.println("Вы зашли в пустую комнату");
@@ -42,13 +46,16 @@ public class Room {
             System.out.println("Котик под номером " + tempCat.getId() + " сыт и доволен");
         }
     }
+
+    public void feedFromTargetPlate (int plateId){
+        for (Cat cat : cats) {
+            cat.eat(plates.get(plateId - 1));
+        }
+    }
     public void feedCat (Cat cat){
         int tempPlateId = 0;
         while (!cat.isFull() && tempPlateId != (plates.size() - 1)){
-//            System.out.println(plates.get(tempPlateId));
             cat.eat(plates.get(tempPlateId));
-//            System.out.println(plates.get(tempPlateId));
-//            System.out.println(cat);
             tempPlateId++;
         }
         if (cat.isFull()){
@@ -61,7 +68,6 @@ public class Room {
             plate.setAmountOfFood(plate.getMaxFood());
         }
         for (Cat cat : cats) {
-//            System.out.println(cat);
             feedCat(cat);
         }
     }
@@ -74,7 +80,6 @@ public class Room {
 
     public void feedAllCats(){
         for (Cat cat : cats) {
-//            System.out.println(cat);
             feedCat(cat);
         }
     }
@@ -96,12 +101,11 @@ public class Room {
                 + getCountPlates() + " тарелок" +
                 "\nИнформация по тарелкам: \n";
         for (Plate plate : plates) {
-            result += "Тарелка " + plate.getId() + " " + plate.getAmountOfFood() + "/" + plate.getMaxFood() + "\n";
+            result += plate.toString() + "\n\n";
         }
         result += "Информация по котам:\n";
         for (Cat cat : cats) {
-            result += "Кот " + cat.getId() + (cat.isFull() ? " сыт " : " голоден ") + " необходимое количество еды " +
-                    cat.getHungerLevel() + "\n";
+            result += cat.toString() + "\n\n";
         }
         return result;
     }
